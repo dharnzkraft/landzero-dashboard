@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    	
+  	<!-- Title -->
+	<title>LANDZERO || One of Nigeria's most trusted Realtors</title>
+	
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="Dexignlabs">
+	<meta name="robots" content="">
+	
+	<meta name="keywords" content="admin dashboard, admin template, analytics, bootstrap, bootstrap 5 admin template, finance admin, admin, modern, responsive admin dashboard, sales dashboard, sass, ui kit, web app, bootstrap5, admin panel, Crypto Trading, Cryptocurrency, Trading Platform, Financial Insights, Efficiency, Data Visualization, User-Friendly, User Interface, Investment, Financial Management, Trading Tools, Performance Metrics, Real-Time Data, Portfolio Optimization, bitcoin, share market">
+	
+	<meta name="description" content="Unlock the full potential of data through the FinLab Crypto Trading Admin Dashboard Template. Seamlessly optimize your cryptocurrency trading activities with this elegantly designed and user-friendly dashboard, meticulously crafted to elevate both your financial insights and operational efficiency.">
+	
+	<meta property="og:title" content="FinLab Crypto Trading Admin Dashboard Template | Dexignlabs">
+	<meta property="og:description" content="Unlock the full potential of data through the FinLab Crypto Trading Admin Dashboard Template. Seamlessly optimize your cryptocurrency trading activities with this elegantly designed and user-friendly dashboard, meticulously crafted to elevate both your financial insights and operational efficiency.">
+	<meta property="og:image" content="https://finlab.dexignlab.com/xhtml/social-image.png">
+	<meta name="format-detection" content="telephone=no">
+	
+	<meta name="twitter:title" content="FinLab Crypto Trading Admin Dashboard Template | Dexignlabs">
+	<meta name="twitter:description" content="Unlock the full potential of data through the FinLab Crypto Trading Admin Dashboard Template. Seamlessly optimize your cryptocurrency trading activities with this elegantly designed and user-friendly dashboard, meticulously crafted to elevate both your financial insights and operational efficiency.">
+	<meta name="twitter:image" content="https://finlab.dexignlab.com/xhtml/social-image.png">
+	<meta name="twitter:card" content="summary_large_image">
+
+	<!-- Mobile Specific -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- FAVICONS ICON -->
+	
+	<link rel="shortcut icon" type="image/png" href="images/favicon.png" >
+	<link href="vendor/wow-master/css/libs/animate.css" rel="stylesheet">
+	<link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+	<link href="vendor/bootstrap-datepicker-master/css/bootstrap-datepicker.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="vendor/toastr/css/toastr.min.css">
+
+	<!-- Style css -->
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+	<!-- Style css -->
+    <link href="css/style.css" rel="stylesheet">
+
+	<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+	
+</head>
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+	 	
+    <div id="preloader">
+	  <div class="loader"></div>
+	</div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper" class=" show">
+	
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a href="index.html" class="brand-logo bg-white">
+				<img src="./images/landzero.png" width="200" alt="" srcset="">
+
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+					<svg width="20" height="20" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect x="22" y="11" width="4" height="4" rx="2" fill="#2A353A"/>
+						<rect x="11" width="4" height="4" rx="2" fill="#2A353A"/>
+						<rect x="22" width="4" height="4" rx="2" fill="#2A353A"/>
+						<rect x="11" y="11" width="4" height="4" rx="2" fill="#2A353A"/>
+						<rect x="11" y="22" width="4" height="4" rx="2" fill="#2A353A"/>
+						<rect width="4" height="4" rx="2" fill="#2A353A"/>
+						<rect y="11" width="4" height="4" rx="2" fill="#2A353A"/>
+						<rect x="22" y="22" width="4" height="4" rx="2" fill="#2A353A"/>
+						<rect y="22" width="4" height="4" rx="2" fill="#2A353A"/>
+					</svg>		
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+		
+		<!--**********************************
+            Chat box start
+        ***********************************-->
+		
+		<!--**********************************
+            Chat box End
+        ***********************************-->
+		
+		<!--**********************************
+            Header startco
+        ***********************************-->
+		<div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+							<div class="input-group search-area">
+								<span class="input-group-text"><a href="javascript:void(0)">
+									<svg width="15" height="15" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M17.5605 15.4395L13.7527 11.6317C14.5395 10.446 15 9.02625 15 7.5C15 3.3645 11.6355 0 7.5 0C3.3645 0 0 3.3645 0 7.5C0 11.6355 3.3645 15 7.5 15C9.02625 15 10.446 14.5395 11.6317 13.7527L15.4395 17.5605C16.0245 18.1462 16.9755 18.1462 17.5605 17.5605C18.1462 16.9747 18.1462 16.0252 17.5605 15.4395V15.4395ZM2.25 7.5C2.25 4.605 4.605 2.25 7.5 2.25C10.395 2.25 12.75 4.605 12.75 7.5C12.75 10.395 10.395 12.75 7.5 12.75C4.605 12.75 2.25 10.395 2.25 7.5V7.5Z" fill="#01A3FF"/>
+									</svg>
+								</a></span>
+								<input type="text" class="form-control" placeholder="Search here...">
+							</div>
+                        </div>
+                     
+                    </div>
+				</nav>
+			</div>
+			
+		</div>
+			<!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+		   <div class="dlabnav">
+			<div class="dlabnav-scroll">	
+				<ul class="metismenu" id="menu">
+					
+					<li>
+						<a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
+						<i class="material-icons">
+						settings
+						</i>
+						<span class="nav-text">Dashboard</span>
+						<span class="badge badge-xs badge-danger ms-3">New</span>
+					</a>
+					<ul aria-expanded="false">
+						<li><a href="index.html">Manage Homepage</a></li>
+						<!-- <li><a href="content-add.html"> Add Content</a></li>
+						<li><a href="menu.html">Manage About Page</a></li>	
+						<li><a href="email-template.html">Manage Properties</a></li>		
+						<li><a href="add-email.html">Add Email</a></li>		
+						<li><a href="blog.html">Blog</a></li>	
+						<li><a href="add-blog.html">Add Blog</a></li>
+						<li><a href="blog-category.html">Blog Category</a></li>				 -->
+					</ul>
+					</li>
+					
+				</ul>
+				
+			</div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+		
+		<!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body default-height">
+			<div class="container-fluid">
+				<div class="page-titles">
+					<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+						<ol class="breadcrumb">
+						  <li class="breadcrumb-item"><a href="#">CMS</a></li>
+						  <li class="breadcrumb-item active" aria-current="page">Content</li>
+						</ol>
+					  </nav>
+				</div>
+				<!-- Row -->
+				<p>Manage Logos</p>
+				<div class="row">
+					<div class="col-md-6">
+						<a href="content-add.html"  data-bs-toggle="modal" data-bs-target="#darkImageModal" class="btn btn-primary btn-sm">Update Dark Background Logo</a>
+						<div id="imageContainer" class="my-2" ></div>
+						<!-- modal for dark background modal -->
+						<div class="modal fade" id="darkImageModal">
+							<div class="modal-dialog modal-dialog-centered" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title">Dark Background Logo Update</h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal">
+										</button>
+									</div>
+									<div class="modal-body">
+										<form id="darkLogoForm">
+											<input type="text" class="form-control input-rounded" id="logo" name="logo" placeholder="image url">
+											<button class="btn btn-success mt-3" type="submit">Submit</button>
+										</form>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Cancel</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<a href="content-add.html"  data-bs-toggle="modal" data-bs-target="#LightimageModal" class="btn btn-primary btn-sm">Update Light Background Logo</a>
+						<div id="imageContainer2" class="my-2" ></div>
+						<!-- modal for light background -->
+						<div class="modal fade" id="LightimageModal">
+							<div class="modal-dialog modal-dialog-centered" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title">Light Logo Update</h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal">
+										</button>
+									</div>
+									<div class="modal-body">
+										<form id="logoForm">
+											<input type="text" class="form-control input-rounded" id="logo1" name="logo1" placeholder="image url">
+											<button class="btn btn-success mt-3" type="submit">Submit</button>
+										</form>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Cancel</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="mb-4 pb-3">
+							<a  data-bs-toggle="modal" data-bs-target="#siteTitleModal" class="btn btn-primary btn-sm">Add Site titles</a>
+						</div>
+						<div class="modal fade" id="siteTitleModal">
+							<div class="modal-dialog modal-dialog-centered" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title">Add New Site Title</h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal">
+										</button>
+									</div>
+									<div class="modal-body">
+										<form id="siteTitleForm">
+											<input type="text" class="form-control input-rounded" id="title" name="title" placeholder="Enter title">
+											<input type="text" class="form-control input-rounded my-3" id="subtitle" name="subtitle" placeholder="Enter subtitle">
+											<input type="text" class="form-control input-rounded my-3" id="image" name="image" placeholder="image url">
+											<button class="btn btn-success mt-3" type="submit">Submit</button>
+										</form>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Cancel</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="filter cm-content-box box-primary">
+							<div class="content-title SlideToolHeader">
+								<div class="cpa">
+									<i class="fa-solid fa-file-lines me-1"></i>Title List
+								</div>
+								<div class="tools">
+									<a href="javascript:void(0);" class="expand handle"><i class="fal fa-angle-down"></i></a>
+								</div>
+							</div>
+							<div class="cm-content-body form excerpt">
+								<div class="card-body pb-4">
+									<div class="table-responsive">
+										<table class="table" id="titleTable" >
+											<thead>
+												<tr>
+													<th>Title</th>
+													<th>subtitle</th>
+													
+													<th>Actions</th>
+												</tr>
+											</thead>
+											<tbody>
+												
+											</tbody>
+										</table>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="mb-4 pb-3">
+							<a data-bs-toggle="modal" data-bs-target="#listingModal" class="btn btn-primary btn-sm">Add Feature Listing</a>
+						</div>
+						<div class="modal fade" id="listingModal">
+							<div class="modal-dialog modal-dialog-centered" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title">Add New Feature Listing</h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal">
+										</button>
+									</div>
+									<div class="modal-body">
+										<form id="listingForm">
+											<input type="text" class="form-control input-rounded" id="propertyName" name="propertyName" placeholder="Listing Name">
+											<input type="text" class="form-control input-rounded" id="imageUrl" name="imageUrl" placeholder="Propert Image URL">
+											<input type="text" class="form-control input-rounded my-3" id="propertyPrice" name="propertyPrice" placeholder="Enter price">
+											<input type="text" class="form-control input-rounded my-3" id="locationDetails" name="locationDetails" placeholder="Location details">
+											<button class="btn btn-success mt-3" type="submit">Submit</button>
+										</form>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Cancel</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="filter cm-content-box box-primary">
+							<div class="content-title SlideToolHeader">
+								<div class="cpa">
+									<i class="fa-solid fa-file-lines me-1"></i>Featured Listings
+								</div>
+								<div class="tools">
+									<a href="javascript:void(0);" class="expand handle"><i class="fal fa-angle-down"></i></a>
+								</div>
+							</div>
+							<div class="cm-content-body form excerpt">
+								<div class="card-body pb-4">
+									<div class="table-responsive">
+										<table class="table" id="propertyTable">
+											<thead>
+												<tr>
+													<th>Feature Title</th>
+													<th>Price</th>
+													<th>Actions</th>
+												</tr>
+											</thead>
+											<tbody>
+												
+											</tbody>
+										</table>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mb-4 pb-3">
+							<a data-bs-toggle="modal" data-bs-target="#testimonyModal" class="btn btn-primary btn-sm">Add Testimony</a>
+						</div>
+		
+						<div class="modal fade" id="testimonyModal">
+							<div class="modal-dialog modal-dialog-centered" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title">Add New Testimony</h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal">
+										</button>
+									</div>
+									<div class="modal-body">
+										<form id="testimonyForm">
+											<input type="text" class="form-control input-rounded" id="recipientName" name="recipientName" placeholder="Recipient Name">
+											<input type="text" class="form-control input-rounded my-3" id="testimonyTitle" name="testimonyTitle" placeholder="Testimony Title">
+											
+											<input type="text" class="form-control input-rounded my-3" id="testimony" name="testimony" maxlength="1000" placeholder="Testimony content">
+											<button class="btn btn-success mt-3" type="submit">Submit</button>
+										</form>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Cancel</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="filter cm-content-box box-primary">
+							<div class="content-title SlideToolHeader">
+								<div class="cpa">
+									<i class="fa-solid fa-file-lines me-1"></i>Testimonies
+								</div>
+								<div class="tools">
+									<a href="javascript:void(0);" class="expand handle"><i class="fal fa-angle-down"></i></a>
+								</div>
+							</div>
+							<div class="cm-content-body form excerpt">
+								<div class="card-body pb-4">
+									<div class="table-responsive">
+										<table class="table" id="testimonyTable" >
+											<thead>
+												<tr>
+													<th>Testimony</th>
+													<th>Name</th>
+													<th>Actions</th>
+												</tr>
+											</thead>
+											<tbody>
+												
+											</tbody>
+										</table>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+				</div>
+				
+				
+			</div>
+
+			<div id="userList"></div>
+		</div>
+		
+        <!--**********************************
+            Content body end
+        ***********************************-->
+		<!--**********************************
+					Footer start
+				***********************************-->
+				<div class="footer">
+					<div class="copyright">
+						<p>Copyright © Landzero  2023</p>
+					</div>
+				</div>
+			
+
+        <!--**********************************
+            Footer end
+        ***********************************-->
+
+		<!--**********************************
+           Support ticket button start
+        ***********************************-->
+		
+        <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+
+	</div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+<!--**********************************
+		Modal
+***********************************-->
+	
+
+<!--**********************************
+	Modal
+***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+	<script src="./js/firebase.js" ></script>
+    <script src="vendor/global/global.min.js"></script>
+	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<script src="vendor/bootstrap-datepicker-master/js/bootstrap-datepicker.min.js"></script>
+	<!-- Dashboard 1 -->
+	<script src="js/dashboard/cms.js"></script>
+    <script src="js/custom.min.js"></script>
+	<script src="js/dlabnav-init.js"></script>
+	<script src="vendor/toastr/js/toastr.min.js"></script>
+    <!-- All init script -->
+    <script src="js/plugins-init/toastr-init.js"></script>
+	
+   <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js"></script>
+<!-- Include other Firebase products as needed (e.g., Firebase Realtime Database) -->
+
+
+</body>
+</html>
