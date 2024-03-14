@@ -16,7 +16,8 @@ var landzeroDb = firebase.database().ref("landzeroDB");
 var siteTitles = firebase.database().ref("siteTitles");
 var propertListings = firebase.database().ref("propertyListings");
 var testimonies = firebase.database().ref("testimonies");
-var propertydb = firebase.database().ref("properties")
+var propertydb = firebase.database().ref("properties");
+var memberDb = firebase.database().ref("members")
 
 
 
@@ -24,7 +25,8 @@ document.getElementById("logoForm").addEventListener("submit", updateLogo);
 document.getElementById("darkLogoForm").addEventListener("submit", updateLogo2);
 document.getElementById("siteTitleForm").addEventListener("submit", addSiteTitle);
 document.getElementById("listingForm").addEventListener("submit", addPropertyList);
-document.getElementById("testimonyForm").addEventListener("submit", addTestimony)
+document.getElementById("testimonyForm").addEventListener("submit", addTestimony);
+document.getElementById("memberForm").addEventListener("submit", addMember);
 // document.getElementById("propertyForm").addEventListener("submit", addProperty)
 
 function updateLogo(e) {
@@ -36,7 +38,7 @@ function updateLogo(e) {
       showAlert();
     }, 2000);
     document.getElementById("logoForm").reset();
-    // window.location.reload()
+    window.location.reload()
 }
 
 function updateLogo2(e) {
@@ -48,7 +50,7 @@ function updateLogo2(e) {
     showAlert();
   }, 2000);
   document.getElementById("darkLogoForm").reset();
-  // window.location.reload()
+  window.location.reload()
 }
 
 function addSiteTitle(e){
@@ -71,7 +73,8 @@ function addPropertyList(e) {
         propertyName: getElementValue('propertyName'),
         propertyPrice: getElementValue("propertyPrice"),
         imageUrl: getElementValue('imageUrl'),
-        locationDetails: getElementValue('locationDetails')
+        locationDetails: getElementValue('locationDetails'),
+        landmark: getElementValue('landmark')
     }
 
     addNewListing(body)
@@ -109,8 +112,22 @@ function addProperty(e){
     document.getElementById("propertyForm").reset();
 }
 
-// functions to fetch data
+function addMember(e){
+  e.preventDefault();
+  var body = {
+    memberName: getElementValue('memberName'),
+    memberTitle: getElementValue("memberTitle"),
+    memberImage: getElementValue('memberImage')
+  }
+  addNewMember(body)
+  setTimeout(() => {
+      showAlert();
+    }, 2000);
+  document.getElementById("memberForm").reset();
+}
 
+
+// functions to fetch data
 
 landzeroDb.on('value',(snapshot)=>{
     var data = snapshot.val()
@@ -142,6 +159,14 @@ propertydb.once('value')
     console.log(properties, 'properties')
     displayProp(properties)
 })
+
+memberDb.once('value')
+.then(function(snapshot){
+  var members = snapshot.val()
+  displayMember(members)
+})
+
+
 
 // properties
 function displayProp(properties){
@@ -191,6 +216,52 @@ function deleteProperty(userId) {
       });
   }
 
+  // display members
+  function displayMember(members){
+    var tableBody = document.querySelector('#memberTable tbody');
+
+    for (var userId in members) {
+      if (members.hasOwnProperty(userId)) {
+        var title = members[userId];
+        var row = tableBody.insertRow(); // Insert a new row
+
+        // Insert cells for name and email
+        var memberNameCell = row.insertCell();
+        var memberTitleCell = row.insertCell();
+        var actionCell = row.insertCell();
+
+        // Populate cells with user data
+        memberNameCell.textContent = title.memberName;
+        memberTitleCell.textContent = title.memberTitle;
+
+        // Create delete button
+        var deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.className = 'btn btn-danger delete-btn';
+        deleteBtn.addEventListener('click', function() {
+          // Call delete function passing the userId
+          var userId = this.dataset.userId;
+          deleteMember(userId);
+        });
+        deleteBtn.dataset.userId = userId; // Store userId in dataset for later use
+        actionCell.appendChild(deleteBtn); 
+      }
+    }
+  }
+
+  function deleteMember(userId) {
+
+    firebase.database().ref('members/' + userId).remove()
+      .then(function() {
+        console.log('User data deleted successfully!');
+        // Remove the corresponding row from the table
+        var row = document.querySelector('button[data-user-id="' + userId + '"]').parentNode.parentNode;
+        row.parentNode.removeChild(row);
+      })
+      .catch(function(error) {
+        console.error('Error deleting user data:', error);
+      });
+  }
 
 // testimonies
 function displayTestimonies(testimonies){
@@ -382,6 +453,14 @@ const addNewTestimony = (body) =>{
 
 const addNewProperty = (body) => {
     propertydb.push(body);
+}
+
+const addNewMember = (body) => {
+  memberDb.push(body)
+}
+
+const addNewTeamMember = (body) => {
+
 }
 
 const getElementValue = (id) => {

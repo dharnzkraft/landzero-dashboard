@@ -304,9 +304,10 @@
 									<div class="modal-body">
 										<form id="listingForm">
 											<input type="text" class="form-control input-rounded" id="propertyName" name="propertyName" placeholder="Listing Name">
-											<input type="text" class="form-control input-rounded" id="imageUrl" name="imageUrl" placeholder="Propert Image URL">
+											<input type="text" class="form-control input-rounded my-3" id="imageUrl" name="imageUrl" placeholder="Propert Image URL">
 											<input type="text" class="form-control input-rounded my-3" id="propertyPrice" name="propertyPrice" placeholder="Enter price">
 											<input type="text" class="form-control input-rounded my-3" id="locationDetails" name="locationDetails" placeholder="Location details">
+											<input type="text" class="form-control input-rounded my-3" id="landmark" name="landmark" placeholder="Landmark">
 											<button class="btn btn-success mt-3" type="submit">Submit</button>
 										</form>
 									</div>
@@ -395,6 +396,69 @@
 												<tr>
 													<th>Testimony</th>
 													<th>Name</th>
+													<th>Actions</th>
+												</tr>
+											</thead>
+											<tbody>
+												
+											</tbody>
+										</table>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mb-4 pb-3">
+							<a data-bs-toggle="modal" data-bs-target="#teamModal" class="btn btn-primary btn-sm">Add Team Member</a>
+						</div>
+		
+						<div class="modal fade" id="teamModal">
+							<div class="modal-dialog modal-dialog-centered" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title">Add New Member</h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal">
+										</button>
+									</div>
+									<div class="modal-body">
+										<form id="memberForm">
+											<input type="text" class="form-control input-rounded" id="memberName" name="memberName" placeholder="Member Name">
+											<input type="text" class="form-control input-rounded my-3" id="memberTitle" name="memberTitle" placeholder="Member Title e.g Chairman CEO">
+											
+											<input type="text" class="form-control input-rounded my-3" id="memberImage" name="memberImage" maxlength="1000" placeholder="Member Picture Url">
+											<button class="btn btn-success mt-3" type="submit">Submit</button>
+										</form>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Cancel</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="filter cm-content-box box-primary">
+							<div class="content-title SlideToolHeader">
+								<div class="cpa">
+									<i class="fa-solid fa-file-lines me-1"></i>Testimonies
+								</div>
+								<div class="tools">
+									<a href="javascript:void(0);" class="expand handle"><i class="fal fa-angle-down"></i></a>
+								</div>
+							</div>
+							<div class="cm-content-body form excerpt">
+								<div class="card-body pb-4">
+									<div class="table-responsive">
+										<table class="table" id="memberTable" >
+											<thead>
+												<tr>
+													<th>Names</th>
+													<th>Position</th>
 													<th>Actions</th>
 												</tr>
 											</thead>
