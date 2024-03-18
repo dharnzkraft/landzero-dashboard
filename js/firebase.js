@@ -17,7 +17,9 @@ var siteTitles = firebase.database().ref("siteTitles");
 var propertListings = firebase.database().ref("propertyListings");
 var testimonies = firebase.database().ref("testimonies");
 var propertydb = firebase.database().ref("properties");
-var memberDb = firebase.database().ref("members")
+var memberDb = firebase.database().ref("members");
+var shortlet = firebase.database().ref("shortlets");
+
 
 
 
@@ -27,6 +29,7 @@ document.getElementById("siteTitleForm").addEventListener("submit", addSiteTitle
 document.getElementById("listingForm").addEventListener("submit", addPropertyList);
 document.getElementById("testimonyForm").addEventListener("submit", addTestimony);
 document.getElementById("memberForm").addEventListener("submit", addMember);
+document.getElementById("shortletForm").addEventListener("submit", addShortlet);
 // document.getElementById("propertyForm").addEventListener("submit", addProperty)
 
 function updateLogo(e) {
@@ -112,6 +115,21 @@ function addProperty(e){
     document.getElementById("propertyForm").reset();
 }
 
+function addShortlet(e){
+  e.preventDefault();
+    var body = {
+      apartmentName: getElementValue('apartmentName'),
+        apartmentPrice: getElementValue("apartmentPrice"),
+        apartmentImage: getElementValue('apartmentImage'),
+        description: getElementValue('description')
+    }
+    addNewShortlet(body)
+    setTimeout(() => {
+        showAlert();
+      }, 2000);
+    document.getElementById("shortletForm").reset();
+}
+
 function addMember(e){
   e.preventDefault();
   var body = {
@@ -164,6 +182,12 @@ memberDb.once('value')
 .then(function(snapshot){
   var members = snapshot.val()
   displayMember(members)
+})
+
+shortlet.once('value')
+.then(function(snapshot){
+  var shorties = snapshot.val()
+  displayShortlets(shorties)
 })
 
 
@@ -346,6 +370,39 @@ function displayProperties(propertyListing){
       }
 }
 
+function displayShortlets(shortletListing){
+  var tableBody = document.querySelector('#shortyTable tbody');
+  for (var userId in shortletListing) {
+    if (shortletListing.hasOwnProperty(userId)) {
+      var title = shortletListing[userId];
+      var row = tableBody.insertRow(); // Insert a new row
+
+      // Insert cells for name and email
+      var titleCell = row.insertCell();
+      var priceCell = row.insertCell();
+      var descCell = row.insertCell();
+      var actionCell = row.insertCell();
+
+      // Populate cells with user data
+      titleCell.textContent = title.apartmentName;
+      priceCell.textContent = title.apartmentPrice;
+      descCell.textContent = title.description;
+
+      // Create delete button
+      var deleteBtn = document.createElement('button');
+      deleteBtn.textContent = 'Delete';
+      deleteBtn.className = 'btn btn-danger delete-btn';
+      deleteBtn.addEventListener('click', function() {
+        // Call delete function passing the userId
+        var userId = this.dataset.userId;
+        deleteListing(userId);
+      });
+      deleteBtn.dataset.userId = userId; // Store userId in dataset for later use
+      actionCell.appendChild(deleteBtn); 
+    }
+  }
+}
+
 function deleteListing(userId) {
     // Remove the user from the database
     firebase.database().ref('propertListings/' + userId).remove()
@@ -453,6 +510,10 @@ const addNewTestimony = (body) =>{
 
 const addNewProperty = (body) => {
     propertydb.push(body);
+}
+
+const addNewShortlet = (body) => {
+  shortlet.push(body)
 }
 
 const addNewMember = (body) => {
