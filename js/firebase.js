@@ -19,6 +19,7 @@ var testimonies = firebase.database().ref("testimonies");
 var propertydb = firebase.database().ref("properties");
 var memberDb = firebase.database().ref("members");
 var shortlet = firebase.database().ref("shortlets");
+var promoCard = firebase.database().ref("promo")
 
 
 
@@ -30,7 +31,7 @@ document.getElementById("listingForm").addEventListener("submit", addPropertyLis
 document.getElementById("testimonyForm").addEventListener("submit", addTestimony);
 document.getElementById("memberForm").addEventListener("submit", addMember);
 document.getElementById("shortletForm").addEventListener("submit", addShortlet);
-// document.getElementById("propertyForm").addEventListener("submit", addProperty)
+document.getElementById("promoForm").addEventListener("submit", addPromo)
 
 function updateLogo(e) {
     e.preventDefault();
@@ -53,6 +54,18 @@ function updateLogo2(e) {
     showAlert();
   }, 2000);
   document.getElementById("darkLogoForm").reset();
+  window.location.reload()
+}
+
+function addPromo(e){
+  e.preventDefault();
+  var promoImage = getElementValue("promoImage");
+
+  savePromoImage(promoImage);
+  setTimeout(() => {
+    showAlert();
+  }, 2000);
+  document.getElementById("promoForm").reset();
   window.location.reload()
 }
 
@@ -151,6 +164,11 @@ landzeroDb.on('value',(snapshot)=>{
     var data = snapshot.val()
     console.log(data)
     displaydarkLogo(data)
+})
+
+promoCard.on('value', (snapshot)=>{
+  var data = snapshot.val()
+  displayPromoCard(data)
 })
 
 siteTitles.once('value')
@@ -362,7 +380,7 @@ function displayProperties(propertyListing){
           deleteBtn.addEventListener('click', function() {
             // Call delete function passing the userId
             var userId = this.dataset.userId;
-            deleteListing(userId);
+            deleteProperty(userId);
           });
           deleteBtn.dataset.userId = userId; // Store userId in dataset for later use
           actionCell.appendChild(deleteBtn); 
@@ -405,9 +423,9 @@ function displayShortlets(shortletListing){
 
 function deleteListing(userId) {
     // Remove the user from the database
-    firebase.database().ref('propertListings/' + userId).remove()
+    firebase.database().ref('shortlets/' + userId).remove()
       .then(function() {
-        console.log('User data deleted successfully!');
+        console.log(' data deleted successfully!');
         // Remove the corresponding row from the table
         var row = document.querySelector('button[data-user-id="' + userId + '"]').parentNode.parentNode;
         row.parentNode.removeChild(row);
@@ -483,6 +501,14 @@ function displaydarkLogo(imageUrl){
     imageContainer2.appendChild(imgElement2);
 }
 
+function displayPromoCard(url){
+  var imageContainer = document.getElementById('promo');
+    var imgElement = document.createElement('img');
+    imgElement.src = url.promoImage;
+    imgElement.width = "400"
+    imageContainer.appendChild(imgElement);
+}
+
 
     
 
@@ -520,9 +546,11 @@ const addNewMember = (body) => {
   memberDb.push(body)
 }
 
-const addNewTeamMember = (body) => {
-
+const savePromoImage = (promoImage) => {
+  promoCard.update({promoImage: promoImage})
 }
+
+
 
 const getElementValue = (id) => {
   return document.getElementById(id).value;
