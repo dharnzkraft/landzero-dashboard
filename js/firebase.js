@@ -246,7 +246,7 @@ function displayProp(properties){
 
 function deleteProperty(userId) {
     // Remove the user from the database
-    firebase.database().ref('properties/' + userId).remove()
+    firebase.database().ref('propertyListings/' + userId).remove()
       .then(function() {
         console.log('User data deleted successfully!');
         // Remove the corresponding row from the table
